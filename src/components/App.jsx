@@ -6,11 +6,11 @@ import { ContactList }  from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) && []);
+  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')), []);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.getItem('contacts', JSON.stringify(contacts));
+    localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const formSubmitHandler = (name, number) => {
